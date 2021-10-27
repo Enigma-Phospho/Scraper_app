@@ -11,8 +11,9 @@ canopener.close()
 
 soup = BeautifulSoup(site_content, "lxml")
 
-title = soup.find_all("span", {"class": "a-size-base a-color-base a-text-normal",
-                      "class": "a-offscreen",
-                               "class": "aria-label=4.5 out of 5 stars",
+title = soup.find_all("span", {
+    "class": "a-size-base a-color-base a-text-normal",
+    "class": "a-offscreen",
+    "class": "aria-label=4.5 out of 5 stars",
 
-                               })
+})
