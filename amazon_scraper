@@ -1,17 +1,22 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
+# creating url variable
 url = "https://www.amazon.com/s?k=Vanity+mirror&page=2&qid=1635361276&ref=sr_pg_2"
 
+# creating variable that opens the page
 canopener = urlopen(url)
 
+# creating a variable that reads the html
 site_content = canopener.read()
 
 canopener.close()
 
+# making a soup of the parsed html content using the lxml parser
 soup = BeautifulSoup(site_content, "lxml")
 
-title = soup.find_all("span", {
+# making a dict variable that collects the provided data soup finds
+productdata = soup.find_all("span", {
     "class": "a-size-base a-color-base a-text-normal",
     "class": "a-offscreen",
     "class": "aria-label=4.5 out of 5 stars",
